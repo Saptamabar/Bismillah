@@ -1,0 +1,44 @@
+-- Table: public.pengguna
+
+-- DROP TABLE IF EXISTS public.pengguna;
+
+CREATE TABLE IF NOT EXISTS public.pengguna
+(
+    user_id integer NOT NULL,
+    username character varying(16) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(16) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT user_pk PRIMARY KEY (user_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.pengguna
+    OWNER to postgres;
+	
+-- Table: public.tugas
+
+-- DROP TABLE IF EXISTS public.tugas;
+
+CREATE TABLE IF NOT EXISTS public.tugas
+(
+    tugas_id integer NOT NULL,
+    judul character varying(16) COLLATE pg_catalog."default" NOT NULL,
+    deskripsi character varying(16) COLLATE pg_catalog."default" NOT NULL,
+    deadline character varying(16) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT tugas_pk PRIMARY KEY (tugas_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.tugas
+    OWNER to postgres;
+	
+INSERT INTO public.tugas(
+	tugas_id, judul, deskripsi, deadline)
+	VALUES (1, 'PBO', 'Apalah', 'Selasa'),
+	(2, 'APS', 'Gatau', 'Minggu');
+	
+INSERT INTO public.pengguna(
+	user_id, username, password)
+	VALUES (1, 'Sapta', 'lupa'),
+	(2, 'Kemal', '123');
